@@ -33,4 +33,4 @@ Route::get("/kontak",  [HomeController::class, "kontak"]);
 //Dashboard
 Route::get("/dashboard", [DashboardController::class,"index"])->middleware("auth");
 
-Route::resource("Sliders", SliderController::class)->middleware("auth");
+Route::resource("sliders", SliderController::class)->middleware("auth");

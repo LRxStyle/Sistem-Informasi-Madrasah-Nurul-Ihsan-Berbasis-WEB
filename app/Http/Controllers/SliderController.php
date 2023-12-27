@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class SliderController extends Controller
 {
@@ -12,7 +13,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view("slider.index");
+        $sliders = Slider::all();
+        
+        return view("slider.index", compact("sliders"));
     }
 
     /**
@@ -36,9 +39,17 @@ class SliderController extends Controller
 
         $input = $request->all();
 
+        if ($image = $request->file("image")) 
+        {
+            $destinationPath = "image/";
+            $imageName =  date("Ymd") .".". $image->getClientOriginalExtension();
+            $image->move($destinationPath, $imageName);
+            $input["image"] = $imageName;
+        }
+
         Slider::create($input);
 
-        return redirect("/Sliders")->with("message","Data berhasil ditambahkan");
+        return redirect("/sliders")->with("message","Data berhasil ditambahkan");
     }
 
     /**
@@ -54,7 +65,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        return view("slider.edit", compact("slider"));
     }
 
     /**
@@ -62,7 +73,29 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        //
+        $request->validate([
+            "title"=> "required",
+            "description"=> "required",
+            "image"=> "image",
+        ]);
+
+        $input = $request->all();
+
+        if ($image = $request->file("image")) 
+        {
+            $destinationPath = "image/";
+            $imageName =  date("Ymd") .".". $image->getClientOriginalExtension();
+            $image->move($destinationPath, $imageName);
+            $input["image"] = $imageName;
+        }
+        else
+        {
+            unset($input["image"]);
+        }
+
+        $slider->update($input);
+
+        return redirect("/sliders")->with("message","Data berhasil diperbaharui");
     }
 
     /**
@@ -70,6 +103,8 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+
+        return redirect("/sliders")->with("message","Data berhasil dihapus");
     }
 }
