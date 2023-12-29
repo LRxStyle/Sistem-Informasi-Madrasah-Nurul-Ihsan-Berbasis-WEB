@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\Models\Tim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
-class SliderController extends Controller
+class TimController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $tims = Tim::all();
         
-        return view("slider.index", compact("sliders"));
+        return view("tim.index", compact("tims"));
     }
 
     /**
@@ -23,7 +23,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view("slider.create");
+        return view("tim.create");
     }
 
     /**
@@ -45,20 +45,16 @@ class SliderController extends Controller
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
         }
-        else
-        {
-            unset($input["image"]);
-        }
 
-        Slider::create($input);
+        Tim::create($input);
 
-        return redirect("/admin/sliders")->with("message","Data berhasil ditambahkan");
+        return redirect("/admin/tims")->with("message","Data berhasil ditambahkan");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Slider $slider)
+    public function show(Tim $tim)
     {
         //
     }
@@ -66,15 +62,15 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Slider $slider)
+    public function edit(Tim $tim)
     {
-        return view("slider.edit", compact("slider"));
+        return view("tim.edit", compact("tim"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Tim $tim)
     {
         $request->validate([
             "title"=> "required",
@@ -95,18 +91,18 @@ class SliderController extends Controller
             unset($input["image"]);
         }
 
-        $slider->update($input);
+        $tim->update($input);
 
-        return redirect("/admin/sliders")->with("message","Data berhasil diperbaharui");
+        return redirect("/admin/tims")->with("message","Data berhasil diperbaharui");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slider $slider)
+    public function destroy(Tim $tim)
     {
-        $slider->delete();
+        $tim->delete();
 
-        return redirect("/admin/sliders")->with("message","Data berhasil dihapus");
+        return redirect("/admin/tims")->with("message","Data berhasil dihapus");
     }
 }

@@ -3,36 +3,92 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tentang;
+use App\Models\Kontak;
+use App\Models\Slider;
+use App\Models\Profil;
+use App\Models\Kegiatan;
+use App\Models\Tim;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view("home.index");
+        $sliders = Slider::all();
+        $tentang = Tentang::first();
+        $profils = Profil::all();
+        $kegiatans = Kegiatan::all();
+        $kontak = Kontak::first();
+
+        return view('home.index', compact(
+            'sliders',
+            'tentang',
+            'profils',
+            'kegiatans',
+            'kontak',
+        ));
     }
 
     public function tentang()
     {
-        return view("home.tentang");
+        $tentang = Tentang::first();
+        $tims = Tim::all();
+        $kontak = Kontak::first();
+        $profils = Profil::all();
+
+        return view('home.tentang', compact(
+            'tentang',
+            'tims',
+            'kontak',
+            'profils',
+        ));
     }
 
     public function tim()
     {
-        return view("home.tim");
-    }
+        $tims = Tim::all();
+        $kontak = Kontak::first();
+        $profils = Profil::all();
 
-    public function profil()
-    {
-        return view("home.profil");
+        return view('home.tim', compact(
+            'tims',
+            'kontak',
+            'profils',
+        ));
     }
 
     public function kegiatan()
     {
-        return view("home.kegiatan");
+        $kegiatans = Kegiatan::all();
+        $kontak = Kontak::first();
+        $profils = Profil::all();
+
+        return view('home.kegiatan', compact(
+            'kegiatans',
+            'kontak',
+            'profils',
+        ));
     }
 
     public function kontak()
     {
-        return view("home.kontak");
+        $kontak = Kontak::first();
+        $profils = Profil::all();
+
+        return view('home.kontak', compact(
+            'kontak',
+            'profils',
+        ));
+    }
+
+    public function profil()
+    {
+        $profils = Profil::all();
+        $kontak = Kontak::first();
+
+        return view('home.profil', compact(
+            'profils',
+            'kontak',
+        ));
     }
 }

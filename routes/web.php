@@ -3,7 +3,12 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\KontakController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TentangController;
+use App\Http\Controllers\TimController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +36,17 @@ Route::get("/kegiatan",  [HomeController::class, "kegiatan"]);
 Route::get("/kontak",  [HomeController::class, "kontak"]);
 
 //Dashboard
-Route::get("/dashboard", [DashboardController::class,"index"])->middleware("auth");
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get("/dashboard", [DashboardController::class, "index"]);
 
-Route::resource("sliders", SliderController::class)->middleware("auth");
+    Route::resource("sliders", SliderController::class);
+    Route::resource("profils", ProfilController::class);
+    Route::resource("kegiatans", KegiatanController::class);
+    Route::resource("tims", TimController::class);
+
+    Route::get('kontaks', [KontakController::class, 'index']);
+    Route::put('kontaks/{id}', [KontakController::class, 'update']);
+
+    Route::get('tentangs', [TentangController::class, 'index']);
+    Route::put('tentangs/{id}', [TentangController::class, 'update']);
+});

@@ -61,117 +61,60 @@
   <div class="breadcumbs py-2">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center text-white">
-        <h2>Tentang</h2>
+        <h2>Tentang Kami</h2>
         <ol class="d-flex list-unstyled">
-          <li>Beranda</li>
-          <li>Tentang</li>
         </ol>
       </div>
     </div>
   </div>
   <!-- end breadcumbs -->
 
-  <!-- about -->
+ <!-- tentang kami -->
+ <div class="about-us mt-5">
   <div class="container">
+    <div class="title-container text-center ">
+      <h2 class="fw-bold">TENTANG KAMI</h2>
+    </div>
     <div class="row mt-5">
       <div class="col-md-6" data-aos="fade-right">
         <h3 class="fw-bold about-us-title">
-          Lorem ipsum dolor sit amet consectetur.
+          {{$tentang->judul}}
         </h3>
-        <p class="fw-bolder mt-4 about-us-subtitle">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Quibusdam nobis illo eligendi sint commodi.
+        <p class="fw-bolder mt-4 tentang-us-subtitle">
+          {{$tentang->subjudul}}
         </p>
       </div>
       <div class="col-md-6" data-aos="fade-left">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Deserunt, minima non. Aliquid itaque quas libero totam consequatur
-          corporis quibusdam repellendus earum id atque cum veniam, delectus
-          eum odio? Animi, voluptatum!
+          {{$tentang->deskripsi_1}}
         </p>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <i class="fa fa-check-double primary"></i>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis,
-            laboriosam?
+            {{$tentang->kelebihan_1}}
           </li>
           <li class="list-group-item">
             <i class="fa fa-check-double primary"></i>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis,
-            laboriosam?
+            {{$tentang->kelebihan_2}}
           </li>
           <li class="list-group-item">
             <i class="fa fa-check-double primary"></i>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis,
-            laboriosam?
+            {{$tentang->kelebihan_3}}
           </li>
           <li class="list-group-item">
             <i class="fa fa-check-double primary"></i>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis,
-            laboriosam?
+            {{$tentang->kelebihan_4}}
           </li>
         </ul>
         <p class="mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-          quisquam facilis impedit. Commodi nesciunt culpa soluta esse
-          temporibus officia veritatis incidunt error porro
+          {{$tentang->deskripsi_2}}
         </p>
       </div>
     </div>
   </div>
-  <!-- end about -->
+</div>
+<!-- end tentang kami -->
 
-  <!-- teams -->
-  <div class="teams bg-light mt-5 py-5">
-    <div class="container">
-      <div class="title-container ">
-        <h2 class="text-center fw-bold ">Tim B4</h2>
-      </div>
-      <p class="text-center ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem modi vero voluptas ea
-        molestias eum illo, ducimus eius quisquam repellendus accusamus rerum! Repeliendus enim incidunt assumenda
-        pariatur, quisquam evaniet numquam.</p>
-      <div class="row">
-        <div class="col-md-3" data-aos="fade-up">
-          <div class="card" style="width: 18rem;">
-            <img src="assets/img/t1.jpg" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h5 class="card-title text-bold">Jhon Doe</h5>
-              <p class="card-text text-muted">Chief Executive Officer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3" data-aos="fade-up">
-          <div class="card" style="width: 18rem;">
-            <img src="assets/img/t2.jpg" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h5 class="card-title text-bold">Jhon Doe</h5>
-              <p class="card-text text-muted">Chief Executive Officer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3" data-aos="fade-up">
-          <div class="card" style="width: 18rem;">
-            <img src="assets/img/t3.jpg" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h5 class="card-title text-bold">Jhon Doe</h5>
-              <p class="card-text text-muted">Chief Executive Officer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3" data-aos="fade-up">
-          <div class="card" style="width: 18rem;">
-            <img src="assets/img/t4.jpg" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h5 class="card-title text-bold">Jhon Doe</h5>
-              <p class="card-text text-muted">Chief Executive Officer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end teams -->
 
   <!-- footer -->
   <footer class="mt-5">
@@ -180,98 +123,16 @@
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-3">
-            <h4 class="fw-bold">KONTAK</h2>
+            <h4 class="fw-bold">{{$kontak->name}}</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repeliat
-                consequuntur magnam commodi voluptatem quas? Itaque quo obcaecati
-                perspiciatis quaerat ullam!
+                {{$kontak->description}}
               </p>
-              <strong>Phone</strong> : <span>+628382223170 </span>
+              <strong>Phone</strong> : <span>{{$kontak->telepon}} </span>
               <br />
-              <strong>Email</strong> : <span>info@company.org </span>
+              <strong>Email</strong> : <span>{{$kontak->email}} </span>
           </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Our Services</h2>
-              <ul class="list-group list-unstyled">
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Web Development
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Web Design
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Online Marketting
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Graphic Design
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Photography
-                  </a>
-                </li>
-              </ul>
-          </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Useful Links</h2>
-              <ul class="list-group list-unstyled">
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Home
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    About Us
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Services
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Portfolio
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Contact
-                  </a>
-                </li>
-              </ul>
-          </div>
-          <div class="col-md-3">
-            <h4 class="fw-bold">Join Our Newsletter</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="yourmail@example.com" />
-                <button class="btn btn-subscribe" type="button" id="inputGroupFileAddon04">
-                  Subscribe
-                </button>
-              </div>
-          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2"></div>
         </div>
       </div>
     </div>

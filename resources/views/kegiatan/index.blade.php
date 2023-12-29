@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Data Slider')
+@section('title', 'Data Kegiatan')
 
 @section('content')
     
 <div class="container">
-    <a href="/admin/sliders/create" class="btn btn-primary mb-3">Tambah Data</a>
+    <a href="/admin/kegiatans/create" class="btn btn-primary mb-3">Tambah Data</a>
     
     @if ($message = Session::get('message'))
         <div class="alert alert-success">
@@ -29,18 +29,18 @@
                 @php
                     $i = 1
                 @endphp
-                @foreach ($sliders as $slider)
+                @foreach ($kegiatans as $kegiatan)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{$slider->title}}</td>
-                        <td>{{$slider->description}}</td>
+                        <td>{{$kegiatan->title}}</td>
+                        <td>{{$kegiatan->description}}</td>
                         <td style="width: 40%;">
-                            <img src="/image/{{$slider->image}}" alt="" class="img-fluid" width="40%">
+                            <img src="/image/{{$kegiatan->image}}" alt="" class="img-fluid" width="40%">
                         </td>
                         <td>
-                            <a href="{{route('sliders.edit', $slider->id)}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('kegiatans.edit', $kegiatan->id)}}" class="btn btn-warning">Edit</a>
 
-                            <form action="{{route('sliders.destroy', $slider->id)}}" method="POST">
+                            <form action="{{route('kegiatans.destroy', $kegiatan->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Hapus</button>

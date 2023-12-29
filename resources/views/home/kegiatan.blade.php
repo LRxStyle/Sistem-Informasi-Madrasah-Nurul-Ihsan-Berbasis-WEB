@@ -63,8 +63,6 @@
             <div class="d-flex justify-content-between align-items-center text-white">
                 <h2>Kegiatan</h2>
                 <ol class="d-flex list-unstyled">
-                    <li>Beranda</li>
-                    <li>Kegiatan</li>
                 </ol>
             </div>
         </div>
@@ -78,59 +76,17 @@
                 <h2 class="text-center fw-bold">Kegiatan</h2>
             </div>
             <div class="row mt-4">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <ul class="list-unstyled d-flex portfolio-filters">
-                        <li data-filter="*" class="py-2 px-4 filter-active text-white">ALL</li>
-                        <li data-filter=".filter-web" class="py-2 px-4">Web</li>
-                        <li data-filter=".filter-design" class="py-2 px-4">Design</li>
-                        <li data-filter=".filter-photo" class="py-2 px-4">Photography</li>
-                    </ul>
-                </div>
             </div>
-            <p class="text-center mt-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem modi vero
-                voluptas ea molestias eum illo, ducimus eius quisquam repellendus accusamus rerum! Repeliendus enim
-                incidunt assumenda pariatur, quisquam evaniet numquam.</p>
             <div class="row mt-5">
                 <div class="col-md-12">
-                    <div class="mansory portfolio-container">
-                        <div class="mansory-sizer"></div>
-                        <div class="mansory-item m-2 portfolio-item filter-web">
-                            <img src="assets/img/p1.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-design">
-                            <img src="assets/img/p2.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-design">
-                            <img src="assets/img/p3.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-web">
-                            <img src="assets/img/p4.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-design">
-                            <img src="assets/img/p5.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-photo">
-                            <img src="assets/img/p6.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-web">
-                            <img src="assets/img/p7.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-web">
-                            <img src="assets/img/p8.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-photo">
-                            <img src="assets/img/p9.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-web">
-                            <img src="assets/img/p10.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-design">
-                            <img src="assets/img/p11.jpg" alt="" class="img-fluid" />
-                        </div>
-                        <div class="mansory-item m-2 portfolio-item filter-design">
-                            <img src="assets/img/p12.jpg" alt="" class="img-fluid" />
-                        </div>
+                  <div class="mansory kegiatan-container">
+                    <div class="mansory-sizer"></div>
+                    @foreach ($kegiatans as $kegiatan)
+                    <div class="mansory-item m-2 kegiatan-item filter-web">
+                      <img src="image/{{$kegiatan->image}}" alt="" class="img-fluid" />
                     </div>
+                    @endforeach
+                  </div>
                 </div>
             </div>
         </div>
@@ -144,86 +100,16 @@
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-3">
-            <h4 class="fw-bold">KONTAK</h2>
+            <h4 class="fw-bold">{{$kontak->name}}</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repeliat
-                consequuntur magnam commodi voluptatem quas? Itaque quo obcaecati
-                perspiciatis quaerat ullam!
+                {{$kontak->description}}
               </p>
-              <strong>Phone</strong> : <span>+628382223170 </span>
+              <strong>Phone</strong> : <span>{{$kontak->telepon}} </span>
               <br />
-              <strong>Email</strong> : <span>info@company.org </span>
+              <strong>Email</strong> : <span>{{$kontak->email}} </span>
           </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Our Services</h2>
-              <ul class="list-group list-unstyled">
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Web Development
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Web Design
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Online Marketting
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Graphic Design
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Photography
-                  </a>
-                </li>
-              </ul>
-          </div>
-          <div class="col-md-2">
-            <h4 class="fw-bold">Useful Links</h2>
-              <ul class="list-group list-unstyled">
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Home
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    About Us
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Services
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Portfolio
-                  </a>
-                </li>
-                <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
-                    <i class="fa fa-chevron-right primary"></i>
-                    Contact
-                  </a>
-                </li>
-              </ul>
-          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2"></div>
           <div class="col-md-3">
             <h4 class="fw-bold">Join Our Newsletter</h2>
               <p>
